@@ -33,6 +33,8 @@ public class LoginLambdaTest {
 		//Click Login Button
 		driver.findElement(By.id("login-button")).click();
 		Thread.sleep(2000);
+		
+		//After logging in we expect to be redirected to a Homepage or Dashboard of some kind. 
 		//Get the title and compare it to the expected value
 		String ActualValue=driver.getTitle(); 
 		String ExpectedValue="Welcome - LambdaTest";

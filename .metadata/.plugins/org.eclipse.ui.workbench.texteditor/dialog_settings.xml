@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="NoSuchElementException"/>
+		<item key="selection" value="assertTh"/>
 		<list key="findhistory">
+			<item value="assertth"/>
+			<item value="simpl"/>
 			<item value="NoSuchElementException"/>
 			<item value="selector"/>
 			<item value="quit"/>

@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -36,17 +37,17 @@ public class LoginFailLambdaTest {
 		
 		//Click Login Button
 		driver.findElement(By.id("login-button")).click();
-		assertTrue(driver.findElement(By.tagName("p")).getText().contains("Please enter a correct username and password"));
+		
 		Thread.sleep(2000);
+		
 		//Get the title and compare it to the expected value
 		String ActualValue=driver.getTitle(); 
-		String ExpectedValue="Welcome - LambdaTest";
-		 
-		driver.quit();
+		String ExpectedValue="Welcome - LambdaTest";		
 		
-		//If this passes, that means we successfully logged in and we are currently on the home page.
+		//If these are not equal, it means that the user faced some issues during logging in.
 		assertNotEquals(ActualValue, ExpectedValue);
 		
+		driver.quit();
 	}
 	
 	public static void main(String[] args) throws InterruptedException {

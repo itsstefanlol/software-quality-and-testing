@@ -1,5 +1,5 @@
 INDEX VERSION 1.132+C:\Users\USER\OneDrive\Desktop\Stefan\Fax\III godina\6. Leten semestar\SKT\proj\.metadata\.plugins\org.eclipse.jdt.core
-2388868347.index
+3057512301.index
 4269953805.index
 3184857353.index
 1532342213.index
@@ -154,4 +154,4 @@ INDEX VERSION 1.132+C:\Users\USER\OneDrive\Desktop\Stefan\Fax\III godina\6. Lete
 3777691057.index
 3274744436.index
 1873254185.index
-3057512301.index
+2388868347.index

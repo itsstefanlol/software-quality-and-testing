@@ -9,7 +9,9 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class ebaySearch {
@@ -18,8 +20,8 @@ public class ebaySearch {
 	 * This class tests use case scenarios. Basically we got 3 scenarios to test:
 	 * Use case 1: Visit the ebay website, search the phrase "JBL Speakers" in the search bar and see the results.
 	 * Then check the daily deals page from the link in the top left corner.
-	 * Use case 2: From daily deals, navigate to simplylearn.com, and then back to daily deals again. 
-	 * Use case 3: the print page title the close the browser window part of use case 3
+	 * Use case 2: From daily deals, navigate to google.com, and then back to daily deals again. 
+	 * Use case 3: Navigate to help and contact, change shipping location, then close the browser window.
 	 */
 	
 
@@ -52,14 +54,23 @@ public class ebaySearch {
 	@Order(3)
 	public void navigate() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.navigate().to("https://www.simplilearn.com/");
+		driver.navigate().to("https://www.google.com/");
 		Thread.sleep(3000);
 		driver.navigate().back(); 
+		
 		String ActualValue = driver.getTitle();
 		//This is actually not the title of the Daily Deals page. That's why I run a command assertNotEquals a few lines below.
 		String ExpectedValue = "Best deals and Free Shipping";
 		assertNotEquals(ActualValue, ExpectedValue);
 		
+		//Get to help & contact
+		driver.findElement(By.id("gh-p-3")).click();
+		
+		driver.navigate().back();
+		//Set ship-to location for your account
+		driver.findElement(By.cssSelector("#gh-eb>#gh-shipto-click>.gh-menu>button>span")).click();
+
+
 	}
 	
 	@Test
