@@ -1,0 +1,20 @@
+package test;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrowserStackTutorials {
+
+	@Test
+	public void testAssertFunctions() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.navigate().to("https://www.browserstack.com/");
+		//String ActualTitle = driver.getTitle();
+		String ActualTitle = "Stefa";
+		/*String ExpectedTitle = "Most Reliable App & Cross Browser Testing Platform | BrowserStack";*/
+	    String ExpectedTitle = "Stefa";
+		Assert.assertEquals(ExpectedTitle, ActualTitle);
+	}
+}

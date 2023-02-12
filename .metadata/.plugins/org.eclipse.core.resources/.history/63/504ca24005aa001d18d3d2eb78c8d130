@@ -1,0 +1,23 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FirstSeleniumTest {
+
+	WebDriver driver;
+	
+	// Use case: Launch a Firefox Browser and visit the Amazon site.
+	public void launchBroser() { 
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		driver.get("https://www.amazon.com/");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FirstSeleniumTest obj = new FirstSeleniumTest();
+		obj.launchBroser();
+	}
+
+}

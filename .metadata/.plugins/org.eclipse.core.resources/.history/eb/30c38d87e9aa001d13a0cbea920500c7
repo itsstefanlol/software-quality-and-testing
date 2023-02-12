@@ -1,0 +1,17 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+
+public class SignUpTest {
+
+	WebDriver driver;
+	
+	public void RegistrationPage() {
+		this.driver=driver;
+	}
+	
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+	}
+}

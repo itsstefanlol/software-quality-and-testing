@@ -1,0 +1,43 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LoginTest {
+	
+	WebDriver driver;
+	
+	@Test
+	public void tryLogin() { 
+		System.setProperty("webdriver.chromedriver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		//Visit website
+		driver.get("https://www.lambdatest.com/");
+		
+		//Find Login button and input the credentials.
+		driver.findElement(By.linkText("Login")).click();
+		
+		/*
+		 * String ActualValue=driver.getTitle(); String ExpectedValue="Google";
+		 * assertEquals("True", ActualValue, ExpectedValue);
+		 * System.out.println(driver.getTitle());
+		 */
+		//driver.quit();
+		
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		LoginTest obj = new LoginTest();
+		obj.tryLogin();
+	}
+	
+}

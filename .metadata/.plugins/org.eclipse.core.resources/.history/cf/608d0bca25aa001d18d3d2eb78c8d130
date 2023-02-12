@@ -1,0 +1,25 @@
+package test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chromedriver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.navigate().to("https://www.google.com");
+		String actualTitle = driver.getTitle();
+		driver.manage().window().maximize();
+		String expectedTitle = "Free Selenium Tutorials | TestNG Tutorials | Cucumber Tutorials";
+		Assert.assertEquals(actualTitle, expectedTitle);
+		driver.close();
+		driver.quit();
+	}
+
+}

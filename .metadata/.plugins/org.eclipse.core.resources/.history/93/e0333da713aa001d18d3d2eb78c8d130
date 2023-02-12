@@ -1,0 +1,32 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ebaySearch {
+
+	WebDriver driver;
+	
+	public void launchBrowser() { 
+		System.setProperty("webdriver.chromedriver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://www.ebay.com/");
+	}
+	
+	public void seachProductVisitDailyDeals() throws InterruptedException {
+		//wait 2 seconds after the previous command is executed.
+		Thread.sleep(2000);
+		driver.findElement(By.id("gh-ac")).sendKeys("JBL Speakers");
+		driver.findElement(By.id("gh-btn")).click();  
+		Thread.sleep(2000);
+		driver.findElement(By.linkText("Daily Deals")).click();
+	}
+   
+	
+	public static void main(String[] args) throws InterruptedException {
+		ebaySearch obj = new ebaySearch();
+		obj.launchBrowser();
+		obj.seachProductVisitDailyDeals();
+	}
+}

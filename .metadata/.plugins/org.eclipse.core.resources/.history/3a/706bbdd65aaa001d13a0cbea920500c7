@@ -1,0 +1,58 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LoginTest {
+	
+	WebDriver driver;
+	
+	@Test
+	public void tryLogin() throws InterruptedException { 
+		System.setProperty("webdriver.chromedriver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		//Visit website
+		driver.get("https://www.lambdatest.com/");
+		Thread.sleep(1000);
+		
+		//Find Login button and input the credentials.
+		driver.findElement(By.linkText("Login")).click();
+		
+		//Input email and password		
+		driver.findElement(By.id("email")).sendKeys("stefanpopov2409@gmail.com");
+		driver.findElement(By.id("password")).sendKeys("LambdaTest");
+		Thread.sleep(1000);
+		
+		//Click Login Button
+		driver.findElement(By.id("login-button")).click();
+		Thread.sleep(2000);
+		//Get the title and compare it to the expected value
+		String ActualValue=driver.getTitle(); 
+		String ExpectedValue="Welcome - LambdaTest";
+		//Just some commented lines that I used for assurance.
+		//System.out.println(ActualValue);
+		//System.out.println(driver.getCurrentUrl());
+		
+		//If this passes, that means we successfully logged in and we are currently on the home page. 
+		driver.quit();
+		
+		assertEquals(ActualValue, ExpectedValue);
+		
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		LoginTest object = new LoginTest();
+		object.tryLogin();
+	}
+	
+}

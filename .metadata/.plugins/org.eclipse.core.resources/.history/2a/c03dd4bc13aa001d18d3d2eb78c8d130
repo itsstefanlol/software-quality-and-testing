@@ -1,0 +1,53 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ebaySearch {
+
+	WebDriver driver;
+	
+	//Use case 1
+	public void launchBrowser() { 
+		System.setProperty("webdriver.chromedriver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://www.ebay.com/");
+	}
+	
+	//Use case 1, part 2
+	public void seachProductVisitDailyDeals() throws InterruptedException {
+		//wait 2 seconds after the previous command is executed.
+		Thread.sleep(2000);
+		driver.findElement(By.id("gh-ac")).sendKeys("JBL Speakers");
+		driver.findElement(By.id("gh-btn")).click();  
+		Thread.sleep(2000);
+		driver.findElement(By.linkText("Daily Deals")).click();
+	}
+   
+	
+	//Use case 2: 
+	public void navigate() throws InterruptedException {
+		Thread.sleep(2000);
+		driver.navigate().to("https://www.simplilearn.com/");
+		Thread.sleep(3000);
+		driver.navigate().back(); 
+	}
+	
+	
+	public static void main(String[] args) throws InterruptedException {
+		ebaySearch obj = new ebaySearch();
+		
+		//Use case 1: Visit the ebay website, search the phrase 
+		//"JBL Speakers" in the search bar and see the results.
+		//Then check the daily deals page from the link in the top left corner.		
+		obj.launchBrowser();
+		obj.seachProductVisitDailyDeals();
+		
+		//Use case 2: From daily deals, navigate to simplylearn, and 
+		//then back to daily deals again.
+		
+		
+		
+	}
+}

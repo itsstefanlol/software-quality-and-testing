@@ -1,0 +1,20 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ebaySearch {
+
+	WebDriver driver;
+	
+	public void launchBroser() { 
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\USER\\OneDrive\\Desktop\\Stefan\\Fax\\III godina\\6. Leten semestar\\SKT\\proj\\Installers\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
+	}
+   
+	public static void main(String[] args) {
+		FirstSeleniumTest obj = new FirstSeleniumTest();
+		obj.launchBroser();
+	}
+}
